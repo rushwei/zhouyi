@@ -1056,7 +1056,7 @@ aiSubmitBtn.addEventListener('click', () => {
 const aiCopyBtn = document.getElementById('ai-copy-btn');
 aiCopyBtn.addEventListener('click', async () => {
     const q = aiQuestion.value.trim();
-    let prompt = `你是一位精通六爻占卜的易学大师，请根据以下卦象信息进行专业解读。\n\n卦象信息：\n${currentHexagramInfo}`;
+    let prompt = `你是一位精通六爻占卜的易学大师，请根据以下卦象信息进行专业解读。\n\n解卦顺序（务必按此顺序展开分析）：\n1. 世应分析：先从应爻、世爻入手，解析卦主（求占之人）与所占之事之间的关系与态势（世为己、应为他/事，看其旺衰、生克、动静、比和冲合）\n2. 用神剖判：再根据所占之事取用神（如问财取财爻、问官取官爻、问婚取应爻或官鬼/妻财等），结合日月生克、动变化出，解释求占之事当前的状态与吉凶\n3. 卦象背景：最后回归卦象本身（本卦/变卦的卦名、卦辞、上下卦象意），阐释整件事所处的大环境与背景关系\n\n在以上主线之上，补充六兽参考、动爻与变爻、旬空与日破，并给出综合判断与实际可行的建议。\n\n卦象信息：\n${currentHexagramInfo}`;
     if (q) prompt += `\n\n占卜事件：${q}`;
     try {
         await navigator.clipboard.writeText(prompt);
